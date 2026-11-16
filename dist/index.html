@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WaveLabs - the signal desk for Solana</title>
+<meta name="description" content="WaveLabs is a retro signal desk on Solana: a live board of trending tokens, a pinned home row, and a scope you can play with.">
+<meta name="theme-color" content="#0f1110">
+<meta property="og:title" content="WaveLabs">
+<meta property="og:description" content="Analog soul, onchain pulse.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/wave-logo-512.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" as="image" href="assets/wave-logo-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Sora:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="app" class="route-enter"><aside class="sidebar" id="sidebar" aria-label="Site navigation">
+    <div class="side-head"><a class="brand" href="#top"><span class="logo-chip"><img src="assets/wave-logo-192.png" alt="WaveLabs logo" width="40" height="40"></span><span class="brand-name">WaveLabs<i>.</i></span></a>
+    <button type="button" class="icon-btn side-close" id="nav-close" aria-label="Close navigation"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <div class="side-body">
+      <div class="side-chip"><span class="dot-sq"></span><span>Signal desk</span></div>
+      <p class="side-group">Explore</p><a class="side-link" href="#board" data-nav="board"><span>Market board</span><span class="side-idx">01</span></a><a class="side-link" href="#chain" data-nav="chain"><span>Signal chain</span><span class="side-idx">02</span></a><p class="side-group">Lab</p><a class="side-link" href="#scope" data-nav="scope"><span>Scope bench</span><span class="side-idx">01</span></a><a class="side-link" href="#roadmap" data-nav="roadmap"><span>Roadmap</span><span class="side-idx">02</span></a>
+    </div>
+    <p class="side-foot">wavelabs.fun</p>
+  </aside><div class="overlay" id="overlay" hidden></div>
+  <div class="main"><div class="progress" id="progress" aria-hidden="true"></div><header class="topbar" id="top">
+    <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <a class="brand brand-top" href="#top"><img src="assets/wave-logo-192.png" alt="" width="32" height="32"><span>WaveLabs<i>.</i></span></a>
+    <div class="ca-wrap"><div class="ca-slot is-inert" id="ca-slot" data-ca-state="absent" aria-disabled="true">
+      <span class="ca-label">CA</span><span class="ca-value">· · · · · · · · · · · ·</span>
+      <span class="ca-act"><span class="ca-fb">Awaiting announcement</span></span></div></div>
+    <div class="top-pill" id="top-pill"><span class="status-pill is-sync" role="status"><i class="live-dot"></i><span>Tuning</span></span></div>
+    <div class="socials" aria-label="Social links"><a class="social" href="https://x.com/UseWave" target="_blank" rel="noopener noreferrer" aria-label="X (@UseWave)" title="X"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><span class="social is-inert" role="img" aria-label="GitHub (not available)" aria-disabled="true"><svg class="ico" viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></span></div>
+  </header>
+  <main class="content"><section class="banner" aria-label="WaveLabs intro">
+    <div class="banner-fx" aria-hidden="true">
+      <img class="banner-art" data-depth="0.03" src="assets/banner.jpg" alt="" width="1500" height="500" fetchpriority="high">
+      <div class="mesh"><i class="blob b1" data-depth="0.05"></i><i class="blob b2" data-depth="0.08"></i><i class="blob b3" data-depth="0.04"></i></div>
+      <div class="scan"></div>
+      <div class="banner-scrim"></div>
+      <img class="hero-logo" data-depth="0.11" src="assets/wave-logo-512.png" alt="" width="512" height="512">
+    </div>
+    <div class="banner-content">
+      <div class="tag-row"><span class="logo-chip lg"><img src="assets/wave-logo-192.png" alt="WaveLabs logo" width="56" height="56"></span>
+        <p class="mono tag">Analog soul,<br><span class="c-signal">onchain pulse.</span></p></div>
+      <h1 class="lab-title" data-reveal>WaveLabs<span class="c-red">.</span></h1>
+      <p class="lede" data-reveal>A glowing little screen that watches Solana breathe. Tune in, read the swell, ride the crest.</p>
+      <div class="btn-row" data-reveal>
+        <a class="btn btn-primary" href="#board">Open the board <svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a class="btn" href="#roadmap">Chart the course</a>
+      </div>
+      <p class="mono formula" data-reveal>swing × sine(rate × time + offset) <span class="c-red">/</span> listen. adjust. amplify.</p>
+    </div>
+  </section><div class="ticker" aria-hidden="true"><div class="ticker-track mono" id="ticker-track"><span id="tk-a"><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span></span><span id="tk-b"><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span><span class="tk-item"><i class="sk sk-tk"></i></span></span></div></div><div class="receipt cols-4 mono" aria-label="Board statistics" data-reveal>
+      <div class="hero-stat"><span class="receipt-value c-signal" id="st-count">—</span><span class="receipt-label">tokens on the board</span></div>
+      <div class="hero-stat"><span class="receipt-value " id="st-poll">60</span><span class="receipt-label">refresh seconds</span></div>
+      <div class="hero-stat"><span class="receipt-value c-red" >SOL</span><span class="receipt-label">network</span></div>
+      <div class="hero-stat"><span class="receipt-value " id="st-feed">—</span><span class="receipt-label">feed state</span></div>
+    </div>
+    <div class="receipt cols-3 mono" aria-label="Pinned row summary" data-reveal>
+      <div class="hero-stat"><span class="receipt-value " id="st-rows">—</span><span class="receipt-label">rows on screen</span></div>
+      <div class="hero-stat"><span class="receipt-value " id="st-top">—</span><span class="receipt-label">strongest 24h swing</span></div>
+      <div class="hero-stat"><span class="receipt-value c-red" id="st-pin">PENDING</span><span class="receipt-label">pinned row</span></div>
+    </div><section class="bench" id="board" aria-label="Market board" data-reveal>
+    <canvas class="wave-field" aria-hidden="true"></canvas>
+    <div class="bench-layout">
+      <div class="bench-side">
+        <div class="bench-head"><h2 class="mono sec-title">01 / Market board</h2>
+          <button type="button" class="icon-btn" id="refresh-btn" aria-label="Refresh board" title="Refresh board"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></button></div>
+        <p class="copy">Ten Solana names ranked by how much boost they bought. Every row below is pulled straight from public order books and re-read while this tab is awake.</p>
+        <div id="board-pill"><span class="status-pill is-sync" role="status"><i class="live-dot"></i><span>Tuning</span></span></div>
+        <p class="copy small" id="board-msg" role="status"></p>
+        <ul class="legend mono"><li><i class="lg up"></i>rising over 24h</li><li><i class="lg down"></i>falling over 24h</li><li><i class="lg own"></i>pinned token</li></ul>
+      </div>
+      <div class="board" role="table" aria-label="Trending Solana tokens">
+        <div class="row head mono" role="row"><span class="c-rank">#</span><span class="c-tok">Token</span><span class="c-price">Price</span><span class="c-h24">24h</span><span class="c-vol">Volume</span><span class="c-liq">Liquidity</span></div>
+        <div id="own-slot"><div class="row own is-placeholder" data-own="absent" aria-label="Pinned token row, awaiting announcement"><span class="c-rank">01</span><span class="c-tok"><span class="tile"><img src="assets/wave-logo-192.png" alt="WaveLabs" width="36" height="36"></span><span class="tok-t"><b>WaveLabs</b><small><span class="dots">· · · · ·</span></small></span></span><span class="c-price"><span class="dots">· · · · ·</span></span><span class="c-h24"><span class="dots">· · · · ·</span></span><span class="c-vol"><span class="dots">· · · · ·</span></span><span class="c-liq"><span class="dots">· · · · ·</span></span></div></div>
+        <div id="trend-rows"><div class="row is-skel" data-skel="1"><span class="c-rank">02</span><span class="c-tok"><i class="sk sk-logo"></i><span class="tok-t"><i class="sk sk-l1"></i><i class="sk sk-l2"></i></span></span><span class="c-price"><i class="sk sk-n"></i></span><span class="c-h24"><i class="sk sk-n"></i></span><span class="c-vol"><i class="sk sk-n"></i></span><span class="c-liq"><i class="sk sk-n"></i></span></div><div class="row is-skel" data-skel="1"><span class="c-rank">03</span><span class="c-tok"><i class="sk sk-logo"></i><span class="tok-t"><i class="sk sk-l1"></i><i class="sk sk-l2"></i></span></span><span class="c-price"><i class="sk sk-n"></i></span><span class="c-h24"><i class="sk sk-n"></i></span><span class="c-vol"><i class="sk sk-n"></i></span><span class="c-liq"><i class="sk sk-n"></i></span></div><div class="row is-skel" data-skel="1"><span class="c-rank">04</span><span class="c-tok"><i class="sk sk-logo"></i><span class="tok-t"><i class="sk sk-l1"></i><i class="sk sk-l2"></i></span></span><span class="c-price"><i class="sk sk-n"></i></span><span class="c-h24"><i class="sk sk-n"></i></span><span class="c-vol"><i class="sk sk-n"></i></span><span class="c-liq"><i class="sk sk-n"></i></span></div><div class="row is-skel" data-skel="1"><span class="c-rank">05</span><span class="c-tok"><i class="sk sk-logo"></i><span class="tok-t"><i class="sk sk-l1"></i><i class="sk sk-l2"></i></span></span><span class="c-price"><i class="sk sk-n"></i></span><span class="c-h24"><i class="sk sk-n"></i></span><span class="c-vol"><i class="sk sk-n"></i></span><span class="c-liq"><i class="sk sk-n"></i></span></div><div class="row is-skel" data-skel="1"><span class="c-rank">06</span><span class="c-tok"><i class="sk sk-logo"></i><span class="tok-t"><i class="sk sk-l1"></i><i class="sk sk-l2"></i></span></span><span class="c-price"><i class="sk sk-n"></i></span><span class="c-h24"><i class="sk sk-n"></i></span><span class="c-vol"><i class="sk sk-n"></i></span><span class="c-liq"><i class="sk sk-n"></i></span></div><div class="row is-skel" data-skel="1"><span class="c-rank">07</span><span class="c-tok"><i class="sk sk-logo"></i><span class="tok-t"><i class="sk sk-l1"></i><i class="sk sk-l2"></i></span></span><span class="c-price"><i class="sk sk-n"></i></span><span class="c-h24"><i class="sk sk-n"></i></span><span class="c-vol"><i class="sk sk-n"></i></span><span class="c-liq"><i class="sk sk-n"></i></span></div><div class="row is-skel" data-skel="1"><span class="c-rank">08</span><span class="c-tok"><i class="sk sk-logo"></i><span class="tok-t"><i class="sk sk-l1"></i><i class="sk sk-l2"></i></span></span><span class="c-price"><i class="sk sk-n"></i></span><span class="c-h24"><i class="sk sk-n"></i></span><span class="c-vol"><i class="sk sk-n"></i></span><span class="c-liq"><i class="sk sk-n"></i></span></div><div class="row is-skel" data-skel="1"><span class="c-rank">09</span><span class="c-tok"><i class="sk sk-logo"></i><span class="tok-t"><i class="sk sk-l1"></i><i class="sk sk-l2"></i></span></span><span class="c-price"><i class="sk sk-n"></i></span><span class="c-h24"><i class="sk sk-n"></i></span><span class="c-vol"><i class="sk sk-n"></i></span><span class="c-liq"><i class="sk sk-n"></i></span></div><div class="row is-skel" data-skel="1"><span class="c-rank">10</span><span class="c-tok"><i class="sk sk-logo"></i><span class="tok-t"><i class="sk sk-l1"></i><i class="sk sk-l2"></i></span></span><span class="c-price"><i class="sk sk-n"></i></span><span class="c-h24"><i class="sk sk-n"></i></span><span class="c-vol"><i class="sk sk-n"></i></span><span class="c-liq"><i class="sk sk-n"></i></span></div><div class="row is-skel" data-skel="1"><span class="c-rank">11</span><span class="c-tok"><i class="sk sk-logo"></i><span class="tok-t"><i class="sk sk-l1"></i><i class="sk sk-l2"></i></span></span><span class="c-price"><i class="sk sk-n"></i></span><span class="c-h24"><i class="sk sk-n"></i></span><span class="c-vol"><i class="sk sk-n"></i></span><span class="c-liq"><i class="sk sk-n"></i></span></div></div>
+      </div>
+    </div>
+  </section><section class="block" id="chain" aria-label="Signal chain"><div class="block-head" data-reveal><h2 class="mono sec-title">02 / Signal chain</h2><p class="copy">What the screen does when your eyes are elsewhere.</p></div>
+    <div class="cards"><article class="card spot" data-reveal><span class="mono card-n">01</span><h3>Open-air board</h3><p>Ten Solana names, ordered by boost spend, redrawn every minute with no login and no clicks.</p></article><article class="card spot" data-reveal><span class="mono card-n">02</span><h3>Pinned frequency</h3><p>Our own token claims row one the instant its address is announced. Until then a placeholder keeps the seat warm.</p></article><article class="card spot" data-reveal><span class="mono card-n">03</span><h3>Quiet when blind</h3><p>Should a feed drop, the last good figures stay put and dashes tell you something is off.</p></article><article class="card spot" data-reveal><span class="mono card-n">04</span><h3>Twin receivers</h3><p>Price data and launchpad details are requested side by side, so one slow line never stalls the other.</p></article><article class="card spot" data-reveal><span class="mono card-n">05</span><h3>Reads like a scope</h3><p>Figures count up and flash when they move. Motion is something you notice, not something you hunt for.</p></article><article class="card spot" data-reveal><span class="mono card-n">06</span><h3>Built for thumbs</h3><p>No control is smaller than forty-four pixels square, at any screen width, and motion switches off on request.</p></article></div></section><section class="bench scope" id="scope" aria-label="Scope bench" data-reveal>
+    <canvas class="wave-field" aria-hidden="true"></canvas>
+    <div class="bench-layout">
+      <div class="bench-side">
+        <div class="bench-head"><h2 class="mono sec-title">03 / Scope bench</h2></div>
+        <p class="copy">A toy oscilloscope straight from the logo. Shape the trace, then see it settle through damped springs.</p>
+        <div class="presets" role="group" aria-label="Trace presets">
+          <button type="button" class="btn chip" data-preset="sine" aria-pressed="true">Sine</button>
+          <button type="button" class="btn chip" data-preset="pulse" aria-pressed="false">Pulse</button>
+          <button type="button" class="btn chip" data-preset="burst" aria-pressed="false">Burst</button>
+        </div>
+        <label class="ctl mono"><span>Amplitude</span><output id="o-amp">60</output><input type="range" id="r-amp" min="10" max="100" value="60"></label>
+        <label class="ctl mono"><span>Frequency</span><output id="o-frq">4</output><input type="range" id="r-frq" min="1" max="12" value="4"></label>
+        <label class="ctl mono"><span>Offset</span><output id="o-pha">0</output><input type="range" id="r-pha" min="0" max="360" value="0"></label>
+      </div>
+      <div class="scope-screen spot"><canvas id="scope-canvas" aria-label="Animated oscilloscope trace" role="img"></canvas>
+        <div class="scope-read mono"><span>CH1 / TRACE</span><span class="c-red" id="scope-state">LOCKED</span></div>
+        <p class="scope-fig mono" id="scope-fig"></p></div>
+    </div></section><section class="block" id="roadmap" aria-label="Roadmap"><div class="block-head" data-reveal><h2 class="mono sec-title">04 / Roadmap</h2><p class="copy">Four stages, no calendar. Each opens when the one before it feels solid.</p></div>
+    <ol class="steps"><li class="step spot now" data-reveal><span class="mono step-n">Stage 01</span><h3>Carrier</h3><p>Site, brand and a live board go out the door. The pinned row waits behind a placeholder.</p><span class="mono step-now">ON AIR</span></li><li class="step spot " data-reveal><span class="mono step-n">Stage 02</span><h3>Broadcast</h3><p>Contract address is published, our pinned row lights up and its pulse starts working.</p></li><li class="step spot " data-reveal><span class="mono step-n">Stage 03</span><h3>Amplify</h3><p>Watchlists, deeper per-token views and alert hooks land on the desk.</p></li><li class="step spot " data-reveal><span class="mono step-n">Stage 04</span><h3>Resonance</h3><p>Community tools and shared dashboards, shaped by whoever tunes in.</p></li></ol></section></main><footer class="foot"><div class="foot-row"><span class="brand-name">WaveLabs<i>.</i></span><span class="mono">wavelabs.fun</span></div>
+    <p class="copy small">Numbers arrive via public feeds and can lag or misfire. Nothing on this page is advice of any kind.</p></footer></div></div>
+<noscript><p style="padding:16px">WaveLabs needs JavaScript for its live board.</p></noscript>
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>

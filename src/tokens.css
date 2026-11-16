@@ -1,0 +1,48 @@
+/* ==========================================================================
+   tokens.css - the ONLY file in src/ that may contain colour literals.
+   Provenance (every value sampled from pixels, never invented):
+     --wl-bg      #0f1110  brand/LOGO WAVE PNG.png  opaque-bg corner pixel rgb(15,17,16)
+     --wl-banner  #090e0a  reference/SAMPUL WAVE JPG  modal pixel of the left 300x300 block
+     --wl-cream   #fae9c6  logo monitor casing, modal pixel (3083 hits)
+     --wl-sand    #ccb488  logo casing outline/shadow edge, modal pixel
+     --wl-tan     #9b7e5b  logo stand shade, modal pixel
+     --wl-screen  #01170f  logo CRT glass, modal pixel
+     --wl-grid    #015b28  logo CRT grid lines, modal pixel
+     --wl-signal  #1ef792  logo waveform line, modal bright-green pixel
+     --wl-red     #f20102  logo power button, modal saturated-red pixel
+     --wl-red-deep #cf0406 logo power button, second modal red
+     --wl-mint    #00ffcc  STATED IN BRIEF for the own-token pulse (not sampled)
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+  --wl-bg: #0f1110;
+  --wl-banner: #090e0a;
+  --wl-cream: #fae9c6;
+  --wl-sand: #ccb488;
+  --wl-tan: #9b7e5b;
+  --wl-screen: #01170f;
+  --wl-grid: #015b28;
+  --wl-signal: #1ef792;
+  --wl-red: #f20102;
+  --wl-red-deep: #cf0406;
+  --wl-mint: #00ffcc;
+
+  /* semantic aliases - derived by mixing, no new literals */
+  --background: var(--wl-bg);
+  --foreground: var(--wl-cream);
+  --muted-foreground: color-mix(in srgb, var(--wl-cream) 62%, var(--wl-bg));
+  --workspace: color-mix(in srgb, var(--wl-screen) 38%, var(--wl-bg));
+  --card: color-mix(in srgb, var(--wl-screen) 55%, var(--wl-bg));
+  --border: color-mix(in srgb, var(--wl-grid) 55%, var(--wl-bg));
+  --notebook-rule: color-mix(in srgb, var(--wl-tan) 45%, var(--wl-bg));
+  --signal: var(--wl-signal);
+  --signal-soft: color-mix(in srgb, var(--wl-signal) 12%, var(--wl-bg));
+  --field-wash: color-mix(in srgb, var(--wl-signal) 4%, transparent);
+  --field-secondary: var(--wl-red);
+  --up: var(--wl-signal);
+  --down: color-mix(in srgb, var(--wl-red) 78%, var(--wl-cream));
+  --color-accent: var(--wl-mint);
+  --scrim: linear-gradient(90deg, color-mix(in srgb, var(--wl-banner) 94%, transparent) 0%, color-mix(in srgb, var(--wl-banner) 76%, transparent) 35%, color-mix(in srgb, var(--wl-banner) 12%, transparent) 75%), linear-gradient(0deg, var(--wl-bg), transparent 30%);
+  --phosphor-glow: 0 0 25px color-mix(in srgb, var(--wl-signal) 16%, transparent);
+  --radius: 6px;
+}
